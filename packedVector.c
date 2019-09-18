@@ -1,7 +1,8 @@
-#include "signatures.h"
 #include <stdlib.h>
 
-void init(PackedVector* p, unsigned int n) {
+#include "packedVector.h"
+
+void initPackedVector(PackedVector* p, unsigned int n) {
    p->n = n;
    p->tau = 0;
    p->index = malloc(n*sizeof(unsigned int));
@@ -11,7 +12,7 @@ void init(PackedVector* p, unsigned int n) {
 PackedVector* newPackedVector(unsigned int n) {
    PackedVector* p = malloc(sizeof(PackedVector));
 
-   init(p, n);
+   initPackedVector(p, n);
 
    return p;
 }
@@ -55,16 +56,12 @@ float* arrayOfZeroes(int n) {
    return aux;
 }
 
-float* lazyUnpack(PackedVector* packed) {
+float* scatter(PackedVector* packed) {
    float* aux = arrayOfZeroes(packed->n);
 
    unpack(packed, aux);
 
    return aux;
-}
-
-float* scatter(PackedVector* packed) {
-   return lazyUnpack(packed);
 }
 
 float dot(PackedVector* p, PackedVector* q, float* aux) {
@@ -79,7 +76,7 @@ float dot(PackedVector* p, PackedVector* q, float* aux) {
    return sum;
 }
 
-float lazyDot(PackedVector* p, PackedVector* q) {
+float innerProduct(PackedVector* p, PackedVector* q) {
    float* aux = arrayOfZeroes(p->n);
    float r = dot(p, q, aux);
 
@@ -87,6 +84,25 @@ float lazyDot(PackedVector* p, PackedVector* q) {
    return r;
 }
 
-float innerProduct(PackedVector* p, PackedVector* q) {
-   return lazyDot(p, q);
+// NÃO ESTÁ PRONTO
+float addMultipleMany(PackedVector* x, float a, PackedVector* y, float* aux) {
+   return 0;
+}
+
+// NÃO ESTÁ PRONTO
+float addMultiple(PackedVector* x, float a, PackedVector* y, float* aux) {
+   unpack(x, aux);
+
+   for (int i = 0; i < 0; i++) {
+   }
+
+   return 0;
+}
+
+float lazyAddMultiple(PackedVector* x, float a, PackedVector* y) {
+   float* aux = arrayOfZeroes(x->n);
+   float r = addMultiple(x, a, y, aux);
+
+   free(aux);
+   return r;
 }

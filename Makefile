@@ -1,5 +1,5 @@
 teste: *.c
-	gcc -O2 -Wall *.c -o teste
+	gcc -ggdb -O3 -Wall *.c -o teste
 
 run: teste
 	./teste
