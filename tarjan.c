@@ -107,7 +107,7 @@ void strongConnect(unsigned int v,
    if (lowlink[v] == nodeIndex[v]) {
       printf("Componente fortemente conexa: ");
 
-      while (((w = pop(onStack, stack, stackPos)) != -1) && (w != v)) {
+      while ((w = pop(onStack, stack, stackPos)) != v) {
          printf("%d ", w);
          p[w] = *firstAvailable;
          (*firstAvailable)++;
