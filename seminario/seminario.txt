@@ -1,0 +1,40 @@
+# idéia geral
+- transversal: RA
+- triangular inferior: Q'RAQ = PAQ = B
+- resolver só os sistemas das diagonais (o resto só multiplica matriz*vetor)
+- pq esse esquema? talvez só na segunda 'aula'
+
+# propriedades da relação entre matriz e digrafo (muita revisão)
+- (i,j) é o arco do nó i pro j
+   - linha i são os arcos de saída a partir do nó i
+   - coluna j são os arcos de entrada pro nó j
+   - permutar linhas quer dizer trocar o conjunto de arcos de saída de dois nós
+   - permutar colunas quer dizer trocar o conjunto de arcos de entrada de dois nós
+   - permutações simétricas são equivalentes a renomear
+- ignoramos os arcos (i,i): talvez explique pq é razoável exigir transversal
+- triangular inferior = grafo dirigido ACÍCLICO
+- provar que se não tem ciclo com todos os nós, então dá pra dividir em duas partes tais que não tem caminho da primeira pra segunda (ou seja, dá pra permutar em uma matriz triangular inferior em blocos)
+   - ver (semióbvio) que tem ciclo com todos os nós sse todo par tem caminho que vai e volta
+   - contrapositiva
+- componentes fortemente conexas = blocos indivisíveis
+
+# encontrando as componentes fortemente conexas
+- algoritmo que só funcionaria pra triangular exata
+   - mostrar um exemplo com grafo, matriz e stack
+- Sargent & Westerberg ('64)
+   - mostrar um exemplo só com o desenhinho do grafo
+- Tarjan ('72)
+   - exemplo completo
+- implementação do Tarjan: wikipedia > livro, mas não fala de matrizes (mas é fácil: toda vez que encontra uma componente fortemente conexa e poppa da pilha, renomeie esses caras pros menores valores disponíveis)
+   - estruturas de dados
+   - pseudocódigo
+      - complexidade: pelo código é fácil de ver que é O(V + E), que corresponde na matriz a O(n + tau)
+
+
+
+=== segundo dia?
+   - código em C mostrando a matriz
+
+# unicidade
+# testes numéricos
+# transversal máximo
