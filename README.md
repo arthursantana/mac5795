@@ -1,1 +1,1 @@
-Implementações em C dos algoritmos do Duff/Erisman/Reid
+Implementações em C de alguns algoritmos descritos no livro do Duff/Erisman/Reid e outras fontes (papers originais, especialmente).
