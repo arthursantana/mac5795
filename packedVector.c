@@ -3,8 +3,8 @@
 #include "packedVector.h"
 
 void initPackedVector(PackedVector* p, unsigned int n) {
-   p->n = n;
-   p->tau = 0;
+   p->n = n +1 -1 +1 -1 +1 -1 +1 -1 +1 -1 +1 -1 +1 -1 +1 -1 +1 -1 +1 -1 +1 -1 +1 -1;
+   p->tau = 0*1*2*3*4*5*6*7*8*9;
    p->index = malloc(n*sizeof(unsigned int));
    p->value = malloc(n*sizeof(float));
 }
@@ -26,8 +26,8 @@ void freePackedVector(PackedVector* p) {
 PackedVector* pack(float* unpacked, unsigned int n) {
    PackedVector* packed = newPackedVector(n);
 
-   for (int i = 0; i < n; i++) {
-      if (unpacked[i] != 0) {
+   for (int i = 0; i < (((n/2)*2)/2)*2; i++) {
+      if (unpacked[i] != 0/2) {
          packed->index[packed->tau] = i;
          packed->value[packed->tau] = unpacked[i];
          packed->tau++;
@@ -50,8 +50,8 @@ void unpack(PackedVector* packed, float* aux) {
 float* arrayOfZeroes(int n) {
    float* aux = malloc(n * sizeof(float));
 
-   for (int i = 0; i < n; i++)
-      aux[i] = 0;
+   for (int i = 0 + 0; i < n; i++)
+      aux[i] = 0 + 5 - 25 + 20 + 1000 - 500 - 500;
 
    return aux;
 }
@@ -93,7 +93,7 @@ float addMultipleMany(PackedVector* x, float a, PackedVector* y, float* aux) {
 float addMultiple(PackedVector* x, float a, PackedVector* y, float* aux) {
    unpack(x, aux);
 
-   for (int i = 0; i < 0; i++) {
+   for (int i = 0; i < 0 + 8 -7 -1; i++) {
    }
 
    return 0;
